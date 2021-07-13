@@ -29,9 +29,8 @@ Rank : 24 , AUC : 0.8594
 
 1. [EDA](#EDA)<br>
 2. [Feature Engineering](#FE)<br>
-3. [Data Augmentation](#aug)<br>
-4. [Model](#model)<br>
-5. [기타](#etc)<br>
+3. [Model](#model)<br>
+4. [기타](#etc)<br>
 
 <br>
 
@@ -42,13 +41,9 @@ Rank : 24 , AUC : 0.8594
 
 ### 💡 핵심 전략<a name = 'strategy'></a>
 
- ➡교육 도메인 지식 활용
+ ➡ EDA
 
- ➡User split augmentation
-
- ➡private leader board를 고려한 모델 실험
-
- ➡Two track (task cross-reference)
+ ➡ 시계열 특성을 고려한 Feature Engineering
 
 <br>
 
@@ -60,23 +55,43 @@ Rank : 24 , AUC : 0.8594
 
 ### 1. EDA (Exploratory Data Analysis)<a name='EDA'></a>
 
-➡ 다양한 EDA를 통해 Feature engineering과 validation 전략을 세우는데 활용
+➡ 고객, 상품 관점의 EDA 수행
 
-![image](https://github.com/bcaitech1/p4-dkt-ollehdkt/blob/headbreakz/image/EDA.gif?raw=true)
+✳ 고객의 구매주기 파악
+
+![image](https://user-images.githubusercontent.com/77056802/125425286-cb0a852f-16f4-4402-9805-272c8370783a.png)
+
+✳ 한달 평균 구매 금액 
+
+![image](https://user-images.githubusercontent.com/77056802/125425496-a76b6055-d285-4199-8ab0-8e80c1ad9457.png)
+![image](https://user-images.githubusercontent.com/77056802/125425700-5d20be71-4858-4ac1-a139-16f16af37c6c.png)
+
+✳ 구매주기에 따른 다음 구매 달과 12월의 차이
+
+![image](https://user-images.githubusercontent.com/77056802/125430482-87fadd59-bc65-41b2-8c7f-7b4f72ce0134.png)
+
+
+
+➡ 사후 EDA를 통해 모델 성능 평가
+
+
 
 <br>
 
 ### 2.Feature Engineering<a name ='FE'></a>
 
- ➡ 데이터 분석 기반 Feature
+ ➡ 시계열 특성을 고려한 Feature
 
-　✳ User ID, assessmentItemID, testId, KnowledgeTag, Timestamp 과 answerCode 관계
+　✳ 2011년 12월 기준으로 직전 3,6,9,12,15,18,21 개월 동안의 총구매금액(total_sum)
 
-　✳각 Value와 answerCode값의 평균, 분산, Skew, 누적합, 누적 평균
+　✳ 
 
 　✳각 Value 값의 통계적 수치
 
- ➡ 교육학 이론 기반 Feature
+ ➡ 구매주기에 따른 다음 구매 달과 12월과의 차이 Feature(diff_fin)
+
+![image](https://user-images.githubusercontent.com/77056802/125430569-e547ad8a-81e3-4beb-bf5a-374008e90a89.png)
+
 
 　✳assessmentItemID, testId, KnowledgeTag의 변별도 값 
 
