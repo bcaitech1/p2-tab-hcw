@@ -41,7 +41,7 @@ Rank : 24 , AUC : 0.8594
 
 ### 💡 핵심 전략<a name = 'strategy'></a>
 
- ➡ EDA
+ ➡ 사전 EDA / 사후 EDA
 
  ➡ 시계열 특성을 고려한 Feature Engineering
 
@@ -80,52 +80,35 @@ Rank : 24 , AUC : 0.8594
 
 ### 2.Feature Engineering<a name ='FE'></a>
 
+ ➡ 각 Value 값의 통계적 수치
+
  ➡ 시계열 특성을 고려한 Feature
 
 　✳ 2011년 12월 기준으로 직전 3,6,9,12,15,18,21 개월 동안의 총구매금액(total_sum)
+ 
+  ✳ label별 total_12 값의 분포 차이 존재
 
-　✳ 
+![image](https://user-images.githubusercontent.com/77056802/125777678-c31f26e8-2c35-4ff4-b271-cc63b73749b4.png)
 
-　✳각 Value 값의 통계적 수치
 
- ➡ 구매주기에 따른 다음 구매 달과 12월과의 차이 Feature(diff_fin)
+ ➡ 구매주기에 따른 다음 구매 달 예측 결과와 12월과의 차이 Feature(diff_fin)
+ 
+  ✳ label별 diff_fin 값의 분포 차이 존재
 
 ![image](https://user-images.githubusercontent.com/77056802/125430569-e547ad8a-81e3-4beb-bf5a-374008e90a89.png)
 
 
-　✳assessmentItemID, testId, KnowledgeTag의 변별도 값 
-
-　✳변별도 : (상위 정답 수 - 하위 정답 수 ) / (총 응시자 / 2)
-
-➡ ELO rating
-
-　✳정답 여부에 따른 개인 Rank 점수 적용
-
-　✳문제 난이도에 따른 Rank 점수의 증가와 감소
-
-➡ 총 47개의 Feature 생성
-
-➡ [Feature Engineering 상세](https://www.notion.so/Feature-Engineering-0189914b580a483083b88982006984d6)
-
-![image](https://github.com/bcaitech1/p4-dkt-ollehdkt/blob/headbreakz/image/FE.png?raw=true)
 
 <br>
 
-### 3. Data augmentation <a name = 'aug'></a>
+### 3. Model <a name = 'model'></a>
 
-➡ Sliding Window(Stride = 10,20, ... ,128)
+➡ Tree decision : LGBM , XGBoost
 
-➡ User month split (사용자를 월별로 정리)
+  ✳ LGBM이 빠르고 성능이 높은 것을 확인한 후, LGBM을 주모델로 사용 
 
-➡ User testID grade split (사용자를 문제지별 정리)
 
-<br>
 
-### 4. Model <a name = 'model'></a>
-
-➡ Tree decision : LGBM , XGBoost , Catboost
-
-➡ NN Models : LSTM , LSTM with Attention , Bert , Saint , GPT-2, LastQuery_pre/post
 
 ![image4](https://github.com/bcaitech1/p4-dkt-ollehdkt/blob/headbreakz/image/model.png?raw=true)
 
