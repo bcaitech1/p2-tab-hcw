@@ -59,7 +59,7 @@ Rank : 24 , AUC : 0.8594
 
  ➡ 고객, 상품 관점의 EDA 수행
 
-   ✳ 고객의 구매주기 파악
+    ✳ 고객의 구매주기 파악
 
 ![image](https://user-images.githubusercontent.com/77056802/125425286-cb0a852f-16f4-4402-9805-272c8370783a.png)
 
@@ -86,27 +86,27 @@ Rank : 24 , AUC : 0.8594
 
  ➡ 시계열 특성을 고려한 Feature
 
-　 ✳ 2011년 12월 기준으로 직전 3,6,9,12,15,18,21 개월 동안의 총구매금액(total_sum)
+　  ✳ 2011년 12월 기준으로 직전 3,6,9,12,15,18,21 개월 동안의 총구매금액(total_sum)
  
-   ✳ label별 total_12 값의 분포 차이 존재
+    ✳ label별 total_12 값의 분포 차이 존재
 
 ![image](https://user-images.githubusercontent.com/77056802/125777678-c31f26e8-2c35-4ff4-b271-cc63b73749b4.png)
 
 
  ➡ 구매주기에 따른 다음 구매 달 예측 결과와 12월과의 차이 Feature(diff_fin)
  
-   ✳ label별 diff_fin 값의 분포 차이 존재
+    ✳ label별 diff_fin 값의 분포 차이 존재
 
 ![image](https://user-images.githubusercontent.com/77056802/125430569-e547ad8a-81e3-4beb-bf5a-374008e90a89.png)
 
 
  ➡ 상품별 중요도 Feature(prd_imp_total)
  
-   ✳ 많이 주문되는 상품 순위를 중요도로 판단
+    ✳ 많이 주문되는 상품 순위를 중요도로 판단
    
-   ✳ 중요도 = 평균 판매수량 * 단가
+    ✳ 중요도 = 평균 판매수량 * 단가
    
-   ✳ label별 분포 차이 존재 X 
+    ✳ label별 분포 차이 존재 X 
 
 ![image](https://user-images.githubusercontent.com/77056802/125780866-4cef7ff7-e0c2-4520-b577-c20349760574.png)
 
@@ -117,11 +117,9 @@ Rank : 24 , AUC : 0.8594
 
 ➡ Tree decision : LGBM , XGBoost
 
-  ✳ LGBM이 빠르고 성능이 높은 것을 확인한 결과, LGBM을 주모델로 사용 
+   ✳ LGBM이 빠르고 성능이 높은 것을 확인한 결과, LGBM을 주모델로 사용 
   
-➡ Cr
-  
-  ✳ 평가지표 AUC 점수 상승
+   ✳ 평가지표 AUC 점수 상승
 
 ![image](https://user-images.githubusercontent.com/77056802/125779518-5c9a63c1-69d0-4831-a2f1-bd5774c572f6.png)
 
@@ -134,9 +132,9 @@ Rank : 24 , AUC : 0.8594
 
 ➡ Feature Selection
 
-  ✳ permutation Feature Selection (from eli5.sklearn import PermutationImportance)
+   ✳ permutation Feature Selection (from eli5.sklearn import PermutationImportance)
   
-  ✳ Correlation Feature Selection : Feature간의 상관계수를 통해 Feature select
+   ✳ Correlation Feature Selection : Feature간의 상관계수를 통해 Feature select
   
 
 ➡ PCA
