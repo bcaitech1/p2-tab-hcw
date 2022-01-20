@@ -136,7 +136,7 @@ Rank : 24 , AUC : 0.8594
   
    ✳ Correlation Feature Selection : Feature간의 상관계수를 통해 Feature select
   
-
+➡ 코호트 분석
 ➡ PCA
 
 
